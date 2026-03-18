@@ -24,13 +24,13 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 
 // Check if Database is connected
-pool.connect((err) => {
-  if (err) {
-    console.error('❌ DATABASE CONNECTION ERROR:', err.stack);
-  } else {
-    console.log('✅ CONNECTED TO POSTGRESQL (epvs_db)');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false // <--- THIS IS REQUIRED FOR RENDER
   }
 });
+
 
 // --- ROUTES ---
 
