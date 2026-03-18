@@ -24,10 +24,20 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 
 // Check if Database is connected
+// 1. Define the Pool (This is the "Phone Line" to the DB)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false // <--- THIS IS REQUIRED FOR RENDER
+    rejectUnauthorized: false // Required for Render
+  }
+});
+
+// 2. Connect and Check (This is "Picking up the Phone")
+pool.connect((err) => {
+  if (err) {
+    console.error('❌ DATABASE CONNECTION ERROR:', err.stack);
+  } else {
+    console.log('✅ CONNECTED TO RENDER DATABASE');
   }
 });
 
