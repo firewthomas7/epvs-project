@@ -10,7 +10,9 @@ app.use(express.json());
 // 1. DATABASE CONNECTION
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false } // Required for cloud databases
+  ssl: {
+    rejectUnauthorized: false // <--- THIS LINE IS THE FIX
+  }
 });
 
 
