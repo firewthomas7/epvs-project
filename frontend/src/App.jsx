@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; // Make sure useEffect is here!
+import { useState, useEffect } from 'react'; 
 import { QRCodeSVG } from 'qrcode.react';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
   // --- 1. Fetch History from Database ---
   const fetchTransactions = async () => {
     try {
-      const response = await fetch('http://localhost:5000/transactions');
+      const response = await fetch('https://epvs-project.onrender.com/transactions');
       if (response.ok) {
         const data = await response.json();
         setTransactions(data);
@@ -39,7 +39,7 @@ function App() {
   const handleAuth = async () => {
     const endpoint = isSignUp ? 'signup' : 'signin';
     try {
-      const response = await fetch(`http://localhost:5000/${endpoint}`, {
+      const response = await fetch(`https://epvs-project.onrender.com/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -66,7 +66,7 @@ function App() {
     if (bankCode.length < 5) return alert("Please enter a valid bank code!");
 
     try {
-      const response = await fetch('http://localhost:5000/verify-payment', {
+      const response = await fetch('https://epvs-project.onrender.com/verify-payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bankCode })
