@@ -8,12 +8,19 @@ app.use(cors());
 app.use(express.json());
 
 // 1. DATABASE CONNECTION
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false // <--- THIS LINE IS THE FIX
-     }
-});
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS transactions (
+  id SERIAL PRIMARY KEY,
+  bank_code VARCHAR(100) NOT NULL,
+  amount DECIMAL(10,2) DEFAULT 500.00,
+  verified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 
 
 // Check if Database is connected
