@@ -1,0 +1,82 @@
+/* Custom Professional Banking CSS */
+.epvs-container {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+  padding: 20px;
+}
+
+.banking-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.header {
+  background: #0052cc;
+  color: white;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+}
+
+.qr-section {
+  text-align: center;
+  border-right: 1px solid #eee;
+  padding-right: 20px;
+}
+
+.verify-section h3 { margin-bottom: 20px; color: #333; }
+
+.bank-input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e1e4e8;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.verify-btn {
+  width: 100%;
+  padding: 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid white;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s; /* Adds a smooth feel */
+}
+
+/* Add this new part below it */
+.logout-btn:hover {
+  background: white;
+  color: #0052cc; /* Blue text on white background */
+}
+
