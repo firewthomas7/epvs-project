@@ -12,7 +12,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false // <--- THIS LINE IS THE FIX
-  }
+     }
 });
 
 
